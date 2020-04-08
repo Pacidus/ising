@@ -114,8 +114,13 @@ class lattice:
             mask = self == -sign
             n = mask.sum()
             choice = np.random.permutation(n)[:flips]
-            mask1, mask2 = np.where(mask)
-            _lattice[mask1[choice], mask2[choice]] = sign
+
+            mask = np.where(mask)
+            indices = tuple()
+            for d in range(self.dim):
+                indices += tuple([mask[d][choice]])
+
+            _lattice[indices] = sign
 
     def all(self, state):
         """
