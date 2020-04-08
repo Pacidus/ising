@@ -141,29 +141,3 @@ class lattice:
 
     def energy(self):
         return self.__lattice__.mean()
-
-
-if __name__ == "__main__":
-
-    for i in range(100):
-        a = int(1 + __rand__() * 1000)
-        b = int(1 + __rand__() * 1000)
-        r = __rand__()
-
-        l = lattice((a, b), r=r)
-
-        shape = l.shape
-        size = l.size
-        val = (l == 1).sum()
-
-        assert size == a * b
-        assert shape == (a, b)
-        assert val == int(r * size)
-
-    shape = (10, 10)
-
-    l = lattice(shape, all=1)
-    assert (l == 1).all()
-
-    l = lattice(shape, all=-1)
-    assert (l == -1).all()

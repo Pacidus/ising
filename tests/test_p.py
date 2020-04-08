@@ -1,4 +1,4 @@
-from p import __version__
+from ising import __version__
 
 
 def test_version():
