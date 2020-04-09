@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "p"
+name = "ising"
 version = "0.1.0"
-description = ""
+description = "A pythonic Ising model simulation"
 authors = ["Pacidus <pacidus@gmail.com>"]
 
 [tool.poetry.dependencies]
