@@ -8,7 +8,7 @@ The lattice can by initialized with a randomized state (you can choose the ratio
 ### arguments:
 
 - ##### shape:
->   type: tuple of int
+>   type: **tuple(int)**
 >
 >
 >   the shape of the lattice is tested for 1 to 4 dimension
