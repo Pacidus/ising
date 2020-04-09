@@ -1,8 +1,8 @@
 import sys, os
 
-sys.path.append(os.path.abspath('./'))
+sys.path.append(os.path.abspath("./"))
 
-from ising import *
+from ising import lattice
 import numpy as np
 
 # Alias for np.random.rand
@@ -44,12 +44,12 @@ assert (l == -1).all()
 1D to 4D randomize and all ratio respect
 """
 
-for d in range(1,5):
+for d in range(1, 5):
     for i in range(100):
         shape = tuple()
-        for j in range(d): 
+        for j in range(d):
             shape += (int(1 + rand() * 100),)
-            
+
     r = rand()
 
     l = lattice(shape, r=r)
@@ -62,10 +62,30 @@ for d in range(1,5):
     assert l.size == size
     assert l.shape == shape
     assert val == int(r * l.size)
-    
+
     l = lattice(shape, all=1)
     assert (l == 1).all()
 
     l = lattice(shape, all=-1)
     assert (l == -1).all()
 
+"""
+Compute the Hamiltonian 
+"""
+
+for i in range(50):
+    l = lattice((100 + i, 100 + i))
+    H = l.mH()
+    assert H ** 2 < 1  # can be false but it's improbable
+
+    l = lattice((100 + i, 100 + i), all=1)
+    H = l.mH()
+    assert H == -4
+
+    l = lattice((100 + i, 100 + i), all=-1)
+    H = l.mH()
+    assert H == -4
+
+from ising.metropolis import algorithm
+
+Ising = algorithm((50, 50))

@@ -4,9 +4,17 @@
 """
 @author: Pacidus
 
-A module for the metroplolis algorithm
+A module for the metropolis algorithm
 """
 
-from tempfile import TemporaryDirectory
 from ising import lattice
-import os.path
+import numpy as np
+
+
+class algorithm(lattice):
+    """
+    Implementation of the metropolis algorithm
+    """
+
+    def __init__(cls, shape):
+        super().__init__(shape)
