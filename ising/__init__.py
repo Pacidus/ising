@@ -12,8 +12,6 @@ import numpy as np
 
 # Alias for np.random.rand
 __randm__ = np.random.rand
-# Alias for np.random.randint
-__randint__ = np.random.randint
 
 
 class lattice:
@@ -73,6 +71,10 @@ class lattice:
     >   is the magnetic field imposed on the lattice
     >   if B is an array he as to have the same shape of the lattice 
 
+    - ##### beta:
+    >   type **float**
+    >   beta is 1/(Kb * T) with T the absolute temp
+    >   and Kb is the Boltzmann constant
     """
 
     def __init__(self, shape, *args, **kwargs):
@@ -112,6 +114,11 @@ class lattice:
         self.B = np.zeros(shape)
         if "B" in kwargs:
             self.B += kwargs["B"]
+
+        if "beta" in kwargs:
+            self.beta = kwargs["beta"]
+        else:
+            self.beta = 1
 
     def __eq__(self, value):
         return self.__lattice__ == value
