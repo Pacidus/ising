@@ -9,57 +9,47 @@ A module for the metropolis algorithm
 from ising import lattice
 import numpy as np
 
-# Alias for np.random.rand
-__randm__ = np.random.rand
+# Aliases
+__perm__ = np.random.permutation
+__random__ = np.random.rand
+# End Aliases
 
-
+# algorithm class
 class algorithm(lattice):
     """
     Implementation of the metropolis algorithm
 
-    for the arguments look the lattice class 
+    ### arguments:
+    
+    -   **for the arguments look the lattice class.**
     """
 
     def __init__(self, shape, *args, **kwargs):
+
         super().__init__(shape, *args, **kwargs)
 
-        if "v" in kwargs:
-            self.__n__(kwargs["v"])
-        else:
-            self.__n__()
-
-    def __n__(self, v=0.001):
-        """
-        Compute the value of n given a probability v
-        """
-        a = v / self.adj.shape[0]
-        b = self.size - 1
-        n = int((a * b + 1) / (a + 1))
-        if n <= 0:
-            n = 1
-
-        self.__On__ = n
+        self.__On__ = 1 + int(self.__size__ * 0.01)
 
     def __sac__(self, choice):
         """
         Sum Adjacents Choice contribution of the hamiltionian
         """
 
-        J = self.J  # The interaction
-        adj = self.adj  # The vector of the adjacent
-
-        a, d = adj.shape  # a: number of adjacent, d: the dimension
-        n = self.__choice__[0].size  # n: choice size
-
-        Sum = np.zeros(n)
-
+        # Aliases
+        J = self.__J__
+        n = choice[0].size
+        adj = self.__adj__
+        state = self.get_state()
+        shape = self.__shape__
+        a, d = adj.shape
         dim = range(d)
         nei = range(a)
 
+        Sum = np.zeros(n)
         for j in nei:
             roll = choice[:]
-            roll = tuple([(roll[k] + adj[j, k]) % self.__shape__[k] for k in dim])
-            Sum += self.J[j] * self.get_state()[roll]
+            roll = tuple([(roll[k] + adj[j, k]) % shape[k] for k in dim])
+            Sum += J[j] * state[roll]
 
         return Sum
 
@@ -67,13 +57,27 @@ class algorithm(lattice):
         """
         Compute the delta in energy for a set of spin flip 
         """
-        return 2 * self.__lattice__[choice] * (self.__sac__(choice) + self.B[choice])
+
+        # Aliases
+        B = self.__B__
+        state = self.__state__
+        sumadj = self.__sac__
+
+        return 2 * state[choice] * (sumadj(choice) + B[choice])
 
     def __Ptrans__(self, choice):
         """
         Return the proba of transition
         """
-        return np.exp(-self.beta * self.__DH__(choice))
+
+        # Aliases
+        DH = self.__DH__(choice)
+
+        # if the energy gap is negative set the proba to 1
+        mask = DH <= 0
+        DH[mask] = 0
+
+        return np.exp(-self.__beta__ * DH)
 
     def step(self, n=0):
         """
@@ -87,14 +91,22 @@ class algorithm(lattice):
 
             n is the number of flip in one step
         """
+        # Aliases
+        size = self.__size__
+        state = self.__state__
+        shape = self.__shape__
+        Ptrans = self.__Ptrans__
 
         if n <= 0:
             n = self.__On__
 
-        self.__choice__ = tuple()
-        for i in self.__shape__:
-            self.__choice__ += (np.random.permutation(i)[:n],)
+        N = __perm__(size)[:n]
 
-        self.__lattice__[self.__choice__] *= 1 - 2 * (
-            __randm__(n) <= self.__Ptrans__(self.__choice__)
-        )
+        choice = tuple()
+        for i in shape:
+            size /= i
+            N1 = N % size
+            choice += (((N - N1) / size).astype(int),)
+            N = N1
+
+        state[choice] *= 1 - 2 * (__random__(n) <= Ptrans(choice))
