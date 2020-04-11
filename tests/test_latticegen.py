@@ -16,8 +16,8 @@ def test_2Drandinit():
 
         l = lattice((a, b), r=r)
 
-        shape = l.shape
-        size = l.size
+        shape = l.__shape__
+        size = l.__size__
         val = (l == 1).sum()
 
         assert size == a * b
@@ -60,9 +60,9 @@ def test_RanDimShape():
         size = 1
         for i in shape:
             size *= i
-        assert l.size == size
-        assert l.shape == shape
-        assert val == int(r * l.size)
+        assert l.__size__ == size
+        assert l.__shape__ == shape
+        assert val == int(r * size)
 
         l = lattice(shape, all=1)
         assert (l == 1).all()
