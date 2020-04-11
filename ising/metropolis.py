@@ -140,5 +140,5 @@ class algorithm(lattice):
             choice += (((N - N1) / size).astype(int),)
             N = N1
 
-        # we apply metropolis algorithm 
+        # we apply metropolis algorithm
         state[choice] *= 1 - 2 * (__random__(n) <= Ptrans(choice))
