@@ -177,9 +177,9 @@ Is the class who solve the Ising model with the **Metropolis algotithm**
 
 Implementation of the Metropolis algorithm
 
-    ### arguments:
+### arguments:
     
-    -   **for the arguments look the lattice class.**
+-   **for the arguments look the lattice class.**
 
 ## Methods
 
