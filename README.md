@@ -159,7 +159,7 @@ Method to get the state of the lattice.
 >
 >   Return the copy of the state.
 
-set_state(self, state):
+### set_state(self, state):
 
 Method to set the state of the lattice.
 
@@ -183,7 +183,7 @@ Implementation of the Metropolis algorithm
 
 ## Methods
 
-step(self, n=0):
+### step(self, n=0):
 step apply the metropolis algorithm on n spin once
 
 ### arguments:
