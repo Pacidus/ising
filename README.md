@@ -1,3 +1,10 @@
+# Ising
+A pythonic implementation of the Ising model.
+
+Check the example for more.
+
+
+## Lattice
 This is the main place of the Ising model,
 we have to initialize it with a tuple of the lattice shape that can be of any dimension or size.
 The lattice can be initialized with a random state (you can choose the state ratio up) or all in a state 1 or -1.
@@ -62,3 +69,129 @@ The lattice can be initialized with a random state (you can choose the state rat
 >
 >   Beta is 1/(Kb * T) with T the absolute temp,
 >   and Kb is the Boltzmann constant.
+
+
+## Methods
+
+### randomize(self, ratio=0.5):
+
+Randomize th lattice state with a given ratio of up state.
+
+### arguments:
+
+#### Optionnal:
+
+- ##### ratio:
+
+>   type: **float** in [0, ..., 1]
+>
+>   The ratio of up state. 
+
+### all(self, state):
+
+Set all the lattice to the same state.
+
+### arguments:
+
+- ##### state:
+
+>   type: **int** == -1 or 1
+>
+>   Value of the spin site.
+
+### mag(self):
+
+Compute the magnetization of the lattice.
+
+### returns:
+
+- ##### Magnetization
+
+>   type: **float** 
+>
+>   Magnetization of the lattice.
+
+### hamiltonian(self):
+
+Compute the Halmitonian of each spin.
+
+### returns:
+
+- ##### local_Hamiltonian:
+
+>   type: **numpy array** 
+>
+>   The Hamiltonian calculated for each spin.
+
+### H(self):
+
+Compute the Hamiltonian of the lattice.
+
+### returns:
+
+- ##### Hamiltonian
+
+>   type: **float** 
+>
+>   Hamiltonian of the lattice.
+
+### mH(self):
+
+Compute the mean value of the Hamiltonian.
+
+### returns:
+
+- ##### <H>
+
+>   type: **float** 
+>
+>   Mean value of the Hamiltonian.
+
+### get_state(self):
+
+Method to get the state of the lattice.
+
+### returns:
+
+- ##### state:
+
+>   type: **numpy array** 
+>
+>   Return the copy of the state.
+
+set_state(self, state):
+
+Method to set the state of the lattice.
+
+### arguments:
+
+- ##### state:
+
+>   type: **numpy array** 
+>
+>   The new state.
+
+
+## Metropolis.algotithm
+Is the class who solve the Ising model with the **Metropolis algotithm**
+
+Implementation of the Metropolis algorithm
+
+    ### arguments:
+    
+    -   **for the arguments look the lattice class.**
+
+## Methods
+
+step(self, n=0):
+step apply the metropolis algorithm on n spin once
+
+### arguments:
+
+#### Optional:
+
+- ##### n:
+
+>   type: **int**
+>
+>   n must be strictly positive is the size of the sample 
