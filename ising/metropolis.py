@@ -25,7 +25,9 @@ class algorithm(lattice):
     """
 
     def __init__(self, shape, *args, **kwargs):
-
+        """
+        Initialisation of the class algorithm
+        """
         super().__init__(shape, *args, **kwargs)
 
         self.__On__ = 1 + int(self.__size__ * 0.01)
@@ -33,6 +35,14 @@ class algorithm(lattice):
     def __sac__(self, choice):
         """
         Sum Adjacents Choice contribution of the hamiltionian
+
+        ### arguments:
+
+        - ##### choice:
+
+        >   type: **tuple(numpy.array)**
+        >
+        >   is tuple of the coordinates of the spin chosen
         """
 
         # Aliases
@@ -56,6 +66,14 @@ class algorithm(lattice):
     def __DH__(self, choice):
         """
         Compute the delta in energy for a set of spin flip 
+
+        ### arguments:
+
+        - ##### choice:
+
+        >   type: **tuple(numpy.array)**
+        >
+        >   is tuple of the coordinates of the spin chosen
         """
 
         # Aliases
@@ -68,6 +86,14 @@ class algorithm(lattice):
     def __Ptrans__(self, choice):
         """
         Return the proba of transition
+
+        ### arguments:
+
+        - ##### choice:
+
+        >   type: **tuple(numpy.array(int))**
+        >
+        >   is tuple of the coordinates of the spin chosen
         """
 
         # Aliases
@@ -83,13 +109,16 @@ class algorithm(lattice):
         """
         step apply the metropolis algorithm n times once
 
-        Parameters:
+
+        ### arguments:
+
+        #### Optional:
         
-            optionnal:
+        - ##### n:
 
-            n: **int** > 0
-
-            n is the number of flip in one step
+        >   type: **int**
+        >
+        >   n must be strictly positive is the size of the sample 
         """
         # Aliases
         size = self.__size__
@@ -100,8 +129,10 @@ class algorithm(lattice):
         if n <= 0:
             n = self.__On__
 
+        # permute the indices of the lattice
         N = __perm__(size)[:n]
 
+        # we convert the indices into coordinates
         choice = tuple()
         for i in shape:
             size /= i
@@ -109,4 +140,5 @@ class algorithm(lattice):
             choice += (((N - N1) / size).astype(int),)
             N = N1
 
+        # we apply metropolis algorithm 
         state[choice] *= 1 - 2 * (__random__(n) <= Ptrans(choice))
