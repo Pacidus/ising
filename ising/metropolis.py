@@ -17,7 +17,7 @@ __random__ = np.random.rand
 # algorithm class
 class algorithm(lattice):
     """
-    Implementation of the metropolis algorithm
+    Implementation of the Metropolis algorithm
 
     ### arguments:
     
@@ -107,7 +107,7 @@ class algorithm(lattice):
 
     def step(self, n=0):
         """
-        step apply the metropolis algorithm n times once
+        step apply the metropolis algorithm on n spin once
 
 
         ### arguments:

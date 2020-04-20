@@ -159,7 +159,11 @@ Method to get the state of the lattice.
 >
 >   Return the copy of the state.
 
+<<<<<<< HEAD
 ### set_state(self, state):
+=======
+set_state(self, state):
+>>>>>>> 79bd6695b8c56b1383b482ac9c45e73311253aae
 
 Method to set the state of the lattice.
 
@@ -177,6 +181,7 @@ Is the class who solve the Ising model with the **Metropolis algotithm**
 
 Implementation of the Metropolis algorithm
 
+<<<<<<< HEAD
 ### arguments:
     
 -   **for the arguments look the lattice class.**
@@ -184,6 +189,15 @@ Implementation of the Metropolis algorithm
 ## Methods
 
 ### step(self, n=0):
+=======
+    ### arguments:
+    
+    -   **for the arguments look the lattice class.**
+
+## Methods
+
+step(self, n=0):
+>>>>>>> 79bd6695b8c56b1383b482ac9c45e73311253aae
 step apply the metropolis algorithm on n spin once
 
 ### arguments:
