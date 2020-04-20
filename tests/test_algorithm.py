@@ -6,6 +6,7 @@ def test_algorithm():
     """
     Test metropolis algorithm
     """
+
     Ising = algorithm((100, 100))
 
     for i in range(10):

@@ -6,7 +6,7 @@
 A module for the Ising model
 """
 
-__version__ = "0.2.0"
+__version__ = "1.0.0"
 
 import numpy as np
 
@@ -114,6 +114,7 @@ class lattice:
     """
 
     # Private functions
+
     def __init__(self, shape, *args, **kwargs):
         """
         Initialisation of the class lattice.
@@ -306,6 +307,7 @@ class lattice:
         return self.hamiltonian().mean()
 
     # All the get fonction
+
     def get_state(self):
         """
         Method to get the state of the lattice.
@@ -320,7 +322,36 @@ class lattice:
         """
         return self.__state__.copy()
 
+    def get_beta(self):
+        """
+        Method to get beta.
+
+        ### returns:
+
+        - ##### beta:
+        
+        >   type: **float** 
+        >
+        >   Return beta.
+        """
+        return self.__beta__
+
+    def get_B(self):
+        """
+        Method to get the magnetic field.
+
+        ### returns:
+
+        - ##### B:
+        
+        >   type: **numpy array** 
+        >
+        >   Return the magnetic field.
+        """
+        return self.__B__
+
     # All the set fonction
+
     def set_state(self, state):
         """
         Method to set the state of the lattice.
@@ -334,3 +365,31 @@ class lattice:
         >   The new state.
         """
         self.__state__ = state.copy()
+
+    def set_beta(self, beta):
+        """
+        Method to set beta.
+
+        ### arguments:
+
+        - ##### beta:
+        
+        >   type: **float** 
+        >
+        >   The new beta.
+        """
+        self.__beta__ = beta
+
+    def set_B(self, B):
+        """
+        Method to set the magnetic field.
+
+        ### arguments:
+
+        - ##### B:
+        
+        >   type: **numpy array**
+        >
+        >   The new Magnetic field.
+        """
+        self.__B__ = B
