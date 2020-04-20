@@ -1,3 +1,8 @@
+![wheel](https://img.shields.io/pypi/wheel/isingm?style=plastic)
+![implementation](https://img.shields.io/pypi/implementation/isingm)
+![python](https://img.shields.io/pypi/pyversions/isingm)
+![downloads](https://img.shields.io/pypi/dm/isingm)
+
 # Ising
 A pythonic implementation of the Ising model.
 

@@ -2,7 +2,11 @@
 name = "isingm"
 version = "1.0.0"
 description = "A pythonic Ising model simulation"
-authors = ["Pacidus <pacidus@gmail.com>"]
+authors = ["pacidus <pacidus@gmail.com>"]
+license = "GNU v3.0"
+readme = "README.md"
+repository = "https://github.com/Pacidus/isingm"
+keywords = ["physics", "ising", "montecarlo", "algorithm"]
 
 [tool.poetry.dependencies]
 python = "^3.7"
