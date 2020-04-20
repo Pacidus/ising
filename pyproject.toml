@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "ising"
-version = "0.1.0"
+version = "1.0.0"
 description = "A pythonic Ising model simulation"
 authors = ["Pacidus <pacidus@gmail.com>"]
 
