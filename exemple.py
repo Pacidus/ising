@@ -1,4 +1,4 @@
-from ising.metropolis import algorithm
+from isingm.metropolis import algorithm
 import matplotlib.pyplot as plt
 import numpy as np
 

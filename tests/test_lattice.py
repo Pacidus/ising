@@ -1,4 +1,4 @@
-from ising import lattice
+from isingm import lattice
 import numpy as np
 import pytest
 
