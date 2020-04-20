@@ -190,14 +190,6 @@ Implementation of the Metropolis algorithm
 
 ### step(self, n=0):
 
-    ### arguments:
-    
-    -   **for the arguments look the lattice class.**
-
-## Methods
-
-step(self, n=0):
-
 step apply the metropolis algorithm on n spin once
 
 ### arguments:
