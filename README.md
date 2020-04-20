@@ -177,8 +177,8 @@ Method to set the state of the lattice.
 >   The new state.
 
 
-## Metropolis.algotithm
-Is the class who solve the Ising model with the **Metropolis algotithm**
+## Metropolis.algorithm
+Is the class who solve the Ising model with the **Metropolis algorithm**
 
 Implementation of the Metropolis algorithm
 

@@ -1,12 +1,12 @@
 [tool.poetry]
 name = "isingm"
-version = "1.0.1"
+version = "1.0.2"
 description = "A pythonic Ising model simulation"
 authors = ["pacidus <pacidus@gmail.com>"]
 license = "GPL-3.0-or-later"
 readme = "README.md"
 repository = "https://github.com/Pacidus/isingm"
-keywords = ["physics", "ising", "montecarlo", "algorithm"]
+keywords = ["physics", "ising", "montecarlo", "ising model", "metropolis algorithm"]
 
 [tool.poetry.dependencies]
 python = "^3.7"
