@@ -6,7 +6,7 @@
 A module for the Ising model
 """
 
-__version__ = "1.0.3"
+__version__ = "1.1.1"
 
 import numpy as np
 
