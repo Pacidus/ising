@@ -307,6 +307,36 @@ class lattice:
         return self.hamiltonian().mean()
 
     # All the get fonction
+    
+    def get_shape(self):
+        """
+        Method to get the shape of the lattice
+        
+        ### returns:
+        
+        - ##### shape:
+        
+        >   type: **tuple(float)**
+        > 
+        >   Return the shape of the lattice
+        """
+        
+        return self.__size__
+    
+    def get_size(self):
+        """
+        Method to get the size of the lattice
+        
+        ### returns:
+        
+        - ##### size:
+        
+        >   type: **float**
+        > 
+        >   Return the size of the lattice
+        """
+        
+        return self.__size__
 
     def get_state(self):
         """
