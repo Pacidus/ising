@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "isingm"
-version = "1.1.1"
+version = "1.1.2"
 description = "A pythonic Ising model simulation"
 authors = ["pacidus <pacidus@gmail.com>"]
 license = "GPL-3.0-or-later"
