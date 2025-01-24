@@ -9,9 +9,9 @@ repository = "https://github.com/Pacidus/isingm"
 keywords = ["physics", "ising", "montecarlo", "ising model", "metropolis algorithm"]
 
 [tool.poetry.dependencies]
-python = "^3.7"
-numpy = "^1.18.2"
-matplotlib = "^3.2.1"
+python = ">=3.7"
+numpy = ">=1.18.2"
+matplotlib = ">=3.2.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
